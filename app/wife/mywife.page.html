@@ -1,0 +1,38 @@
+<h2>Surgery</h2>
+<p><b>Name:</b>
+    <input type="text" value="" [(ngModel)]="mywife.name">
+</p>
+<p><b>Gender:</b>
+    <input type="radio" value="Male" name="gender" [(ngModel)]="mywife.sex"> Male
+    <input type="radio" value="Female" name="gender" [(ngModel)]="mywife.sex"> Female
+    <input type="radio" value="Undefined" name="gender" [(ngModel)]="mywife.sex"> Undefined
+</p>
+
+<p><b>Eye:</b>
+    <select [(ngModel)]="mywife.eye">
+        <option value="oc_nhoi">Oc Nhoi</option>
+        <option value="bo_cau">Bo Cau</option>
+        <option value="ti_hi">Ti hi</option>
+    </select>
+</p>
+
+<b>Badies:</b>
+<ol>
+    <li *ngFor="let bad of mywife.baddies, let position=index;">{{bad}}
+        <button (click)="deleteBad(position)">X</button>
+    </li>
+</ol>
+
+<form (submit)="addBad(morebad.value)">
+    <label>Add more:</label>
+    <input type="text" #morebad />
+</form>
+
+<hr />
+<h2>Hello {{mywife.name}}, {{mywife.age}} years old</h2>
+<p><b>Address:</b> {{mywife.address.district}} - {{mywife.address.city}} </p>
+<p><b>Sex:</b> {{mywife.sex}}</p>
+<p><b>Eye:</b> {{mywife.eye}}</p>
+<img src="/assets/images/thi-no.jpg">
+
+
